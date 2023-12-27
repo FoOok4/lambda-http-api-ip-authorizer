@@ -1,7 +1,7 @@
 locals {
   authorizer_microservice_name     = "whitelist-ip-authorizer-lambda"
   authorizer_lambda_function_alias = "LIVE"
-  authorizer_lambda_function_name  = "${var.nametag}-${var.environment}-blcore-${local.authorizer_microservice_name}"
+  authorizer_lambda_function_name  = "${var.nametag}-${var.environment}-${local.authorizer_microservice_name}"
   log_retention_in_days            = "30"
 }
 
@@ -71,7 +71,7 @@ resource "aws_apigatewayv2_authorizer" "silverlogic_authorizer" {
   api_id                            = var.api_gateway_api_id
   authorizer_type                   = "REQUEST"
   authorizer_uri                    = aws_lambda_alias.authorizer_lambda_alias.invoke_arn
-  name                              = "${var.environment}-${var.nametag}-silverlogic-authorizer"
+  name                              = "${var.environment}-${var.nametag}-lambda-ips-authorizer"
   authorizer_payload_format_version = "1.0"
   authorizer_result_ttl_in_seconds  = "0"
 }

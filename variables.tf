@@ -15,21 +15,6 @@ variable "api_gateway_execution_arn" {
   nullable    = false
 }
 
-variable "vpc_cidr" {
-  description = "VPC CIDR to be allowed on security groups"
-  nullable    = false
-}
-
-variable "vpc_id" {
-  description = "The VPC id to which the API Gateway's security group will be attached"
-  nullable    = false
-}
-
-variable "subnet_ids" {
-  description = "Subnet IDs where the lambda function should run in the VPC"
-  nullable    = false
-}
-
 variable "authorizer_function_env_variables" {
   description = "Environment variables for the lambda function"
   type        = map(string)
